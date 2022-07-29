@@ -1,0 +1,2 @@
+1. fix model movable
+2. fix display movable (both piece and dot)
