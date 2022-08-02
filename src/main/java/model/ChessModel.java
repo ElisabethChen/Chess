@@ -18,7 +18,7 @@ public class ChessModel {
     private Tile[][] board = new Tile[8][8];
     private Piece eatenPiece = null;
     private Point markedPiecePoint = null;
-    private String notifMsg;
+    private String notifyMsg;
 
     public ChessModel() {
         createBoard();
@@ -67,21 +67,21 @@ public class ChessModel {
             Tile tile = board[point.x][point.y];
             Piece piece = tile.piece;
             eatenPiece = null;
-            notifMsg = null;
+            notifyMsg = null;
             if (tile.movable) {
                 if (piece == null || piece.getPieceOwner() != playingPlayer) {
                     movePiece(markedPiecePoint, point);
                 }
             } else {
                 if (piece == null) {
-                    notifMsg = "It's not a valid move";
+                    notifyMsg = "It's not a valid move";
                 } else if (piece.getPieceOwner() == playingPlayer) {
                     resetMovable();
                     this.markedPiecePoint = point;
                     // show movable tiles
                     piece.pieceMovement(board, playingPlayer, this.markedPiecePoint);
                 } else {
-                    notifMsg = "It's not your pieces";
+                    notifyMsg = "It's not your pieces";
                 }
             }
         }
@@ -179,7 +179,7 @@ public class ChessModel {
 
     /**
     * check if it's checkmate. if true, then will notify it by setting
-    * a message on the notifMsg
+    * a message on the notifyMsg
     */
     private void checkCheckmate() {
         Point[] kingsLoc = new Point[2];
@@ -208,7 +208,7 @@ public class ChessModel {
             if (point != null) {
                 Tile tile = board[point.x][point.y];
                 if (tile.getMovable()) {
-                    this.notifMsg = oneKingDanger ? "Both kings are threatened"
+                    this.notifyMsg = oneKingDanger ? "Both kings are threatened"
                             : tile.getPiece().getPieceOwner().getTitle() + "'s king is threatened";
                     oneKingDanger = true;
                 }
@@ -226,7 +226,7 @@ public class ChessModel {
     }
 
     public String getNotifyMsg() {
-        return notifMsg;
+        return notifyMsg;
     }
 
     public PlayerType getPlayingPlayer() {
