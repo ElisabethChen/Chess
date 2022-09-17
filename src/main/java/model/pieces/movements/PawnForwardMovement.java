@@ -17,10 +17,7 @@ public class PawnForwardMovement extends ForwardMovement {
 
    @Override
    public void pieceMovement(Tile[][] board, PlayerType player, Point point) {
-      int step = 1;
-      if (firstMove) {
-         step = 2;
-      }
+      int step = firstMove? 2: 1;
       setMovableTiles(board, player, point, getDirections(player), step);
    }
 

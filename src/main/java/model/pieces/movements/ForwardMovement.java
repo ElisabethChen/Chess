@@ -15,7 +15,7 @@ public abstract class ForwardMovement extends Movement {
      * @param player the playing player
      * @return directions
      */
-    public Point[] getDirections(PlayerType player) {
+    protected Point[] getDirections(PlayerType player) {
         Point[] directions = this.directions.clone();
         if (player == PlayerType.Player2) {
             for (int i = 0; i < directions.length; i++) {
