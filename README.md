@@ -8,7 +8,6 @@ The workspace contains two folders by default, where:
 - `src`: the folder to maintain sources
 - `bin`: the folder containing the comiped output files
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
 ## Run
 
